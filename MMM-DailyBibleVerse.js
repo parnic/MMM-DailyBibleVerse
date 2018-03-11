@@ -38,25 +38,24 @@ Module.register("MMM-DailyBibleVerse", {
         }
 
         var wrapper = document.createElement("div");
+        wrapper.className = "bright";
         switch (this.config.size) {
             case 'xsmall':
-                wrapper.className = "bright xsmall";
+                wrapper.className += " xsmall";
                 break;
             case 'small':
-                wrapper.className = "bright small";
-                break;
-            case 'medium':
-                wrapper.className = "bright";
+                wrapper.className += " small";
                 break;
             case 'large':
-                wrapper.className = "bright large";
+                wrapper.className += " large";
                 break;
-            default:
-                wrapper.className = "bright";
+        }
+        if (this.config.thin) {
+          wrapper.className += " thin";
         }
         wrapper.innerHTML = verse + reference;
         return wrapper;
-        },
+    },
 
     getScripts: function() {
         return [
